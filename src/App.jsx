@@ -152,7 +152,7 @@ function Timecode() {
 function Hero() {
   const [i, setI] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setI((x) => (x + 1) % wides.length), 5000);
+    const id = setInterval(() => setI((x) => (x + 1) % wides.length), 10000);
     return () => clearInterval(id);
   }, []);
   return (
@@ -380,24 +380,7 @@ const hf = [
   ["media/hf4.mp4", "Celebration", "Event teaser", 0],
   ["media/hf5.mp4", "Dental clinic", "Concept campaign", 0],
 ];
-const wides = ["media/rain.mp4", "media/pizza.mp4", "media/watchbook.mp4"];
-
-function WideReel() {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setI((x) => (x + 1) % wides.length), 5000);
-    return () => clearInterval(id);
-  }, []);
-  return (
-    <Reveal className="wide-reel">
-      {wides.map((src, k) => (
-        <div key={src} className={`wide-frame ${k === i ? "on" : ""}`}><LazyVideo src={src} /></div>
-      ))}
-      <div className="wide-bars" />
-      <span className="wide-label">Generated with Higgsfield · directed by Ersia</span>
-    </Reveal>
-  );
-}
+const wides = ["media/rain.mp4", "media/pizza.mp4"];
 
 function Higgsfield() {
   return (
